@@ -1,0 +1,18 @@
+# Disable directory listings site-wide.
+Options -Indexes
+
+# Block direct access to include files that are never meant to be requested
+# as URLs (they're require_once'd by the entry-point pages instead).
+<FilesMatch "^(config|Storage|functions|auth|layout)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<IfModule mod_php.c>
+    php_flag display_errors off
+</IfModule>

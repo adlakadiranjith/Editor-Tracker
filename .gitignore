@@ -1,0 +1,10 @@
+# Runtime data — this is the application's "database"; never commit real
+# production data. The app creates these automatically (as empty [] tables)
+# on first run if they don't exist.
+/data/*.json.php
+/data/*.json.php.lock
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+*.swp
